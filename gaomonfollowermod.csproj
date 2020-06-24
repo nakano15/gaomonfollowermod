@@ -62,6 +62,7 @@
   <ItemGroup>
     <Content Include="CompanionNPCs\Gaomon_Head.png" />
     <Content Include="Creatures\Gaomon\body.png" />
+    <Content Include="Creatures\Gaomon\body_front.png" />
     <Content Include="Creatures\Gaomon\head.png" />
     <Content Include="Creatures\Gaomon\left_arm.png" />
     <Content Include="Creatures\Gaomon\right_arm.png" />

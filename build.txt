@@ -2,3 +2,4 @@ displayName = Gaomon Companion
 author = Nakano15
 version = 0.1
 weakReferences = giantsummon@36.2
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, SpriteModels\

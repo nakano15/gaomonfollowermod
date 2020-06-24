@@ -11,7 +11,7 @@ namespace gaomonfollowermod.CompanionNPCs
     [AutoloadHead]
     public class GaomonNPC : giantsummon.GuardianNPC.GuardianNPCPrefab
     {
-        public override string HeadTexture
+        public override string HeadTexture //For some reason, town npcs head must be facing left, instead of right.
         {
             get
             {

@@ -25,5 +25,18 @@ namespace gaomonfollowermod
                     break;
             }
         }
+
+        public override bool PreAI(NPC npc)
+        {
+            if (npc.type == Terraria.ID.NPCID.BlueSlime && npc.ai[1] == 0)
+            {
+                if (!giantsummon.NpcMod.HasMetGuardian(0, mod) && !giantsummon.NpcMod.HasGuardianNPC(0, mod) && Main.rand.Next(10) == 0)
+                {
+                    npc.ai[1] = ModContent.ItemType<Item.BlueDigivice>();
+                    npc.netUpdate = true;
+                }
+            }
+            return base.PreAI(npc);
+        }
     }
 }
