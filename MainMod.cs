@@ -31,6 +31,8 @@ namespace gaomonfollowermod
                 Terraria.Utils.DrawBorderString(Terraria.Main.spriteBatch, "Body Frame: " + tg.BodyAnimationFrame + "  Left Arm Frame: " + tg.LeftArmAnimationFrame + "  Right Arm Frame: " + tg.RightArmAnimationFrame, new Microsoft.Xna.Framework.Vector2(Terraria.Main.screenWidth * 0.5f, Terraria.Main.screenHeight), Microsoft.Xna.Framework.Color.White, 1f, 0.5f, 1f);
                 System.Collections.Generic.List<string> Texts = new System.Collections.Generic.List<string>();
                 Texts.Add("Name: " + tg.Base.Name);
+                Texts.Add("Invalid: " + tg.Base.InvalidGuardian);
+                Texts.Add("Head Vanity Position: " + tg.Base.HeadVanityPosition.DefaultCoordinate);
                 Texts.Add("Standing Frame: " + tg.Base.StandingFrame);
                 Texts.Add("Jump Frame: " + tg.Base.JumpFrame);
                 Texts.Add("Sitting Frame: " + tg.Base.SittingFrame);

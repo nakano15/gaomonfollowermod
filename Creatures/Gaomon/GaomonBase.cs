@@ -7,11 +7,11 @@ using giantsummon;
 
 namespace gaomonfollowermod
 {
-    public class GaomonBase : GuardianBase
+    public class GaomonBase : giantsummon.GuardianBase
     {
         //Don't just copy and paste everything in this code.
         //Do mind that I'm not really a digifan, so take It easy if something is incorrect based on the anime/games.
-        public GaomonBase() : base()
+        public GaomonBase()
         {
             //TODO - There is a confusion happening here, some datas and overriden methods are working correctly, others are still using the GuardianBase default value.
             Name = "Gaomon";
@@ -79,6 +79,7 @@ namespace gaomonfollowermod
             //Tells that Body Front frame 14 is 0.
             BodyFrontFrameSwap.Add(14, 0);
 
+            //LeftHand is the same as the arm drawn in front of the body.
             //Since here, is to setup the center position of each hand. This is used for item positioning and other functions.
             //AddFramePoint2x automatically multiplicates the dimensions by 2, so you can speed up a bit this part.
             LeftHandPoints.AddFramePoint2x(10, 12, 15);
@@ -89,6 +90,7 @@ namespace gaomonfollowermod
             //I recommend setting points for the hands on the revive animation. It may be useful in the future.
             LeftHandPoints.AddFramePoint2x(15, 18, 28);
 
+            //RightHand is the same as the arm drawn behind the body.
             RightHandPoints.AddFramePoint2x(10, 17, 15);
             RightHandPoints.AddFramePoint2x(11, 22, 21);
             RightHandPoints.AddFramePoint2x(12, 23, 24);
@@ -99,7 +101,8 @@ namespace gaomonfollowermod
             /*Setups the position of the vanity items on the companion head. You will most likelly want to test this right after setting up, since the result may not be what you want. 
              * At least until you find the exact point that makes hats looks okay on your companions.
              Give your companion a Wizard Hat, It is perfect for testing this.*/
-            HeadVanityPosition.DefaultCoordinate2x = new Microsoft.Xna.Framework.Point(15, 19);
+            HeadVanityPosition.DefaultCoordinate2x = new Microsoft.Xna.Framework.Point(16, 21);
+            HeadVanityPosition.AddFramePoint2x(15, 18, 23);
 
             /*Sets the wing center position.
              * The mod automatically places It at the center of the companion sprite, but not always 
@@ -113,7 +116,7 @@ namespace gaomonfollowermod
             //Links to companion specific rewards method.
             AddRewards();
         }
-
+        
         public override void Attributes(TerraGuardian g) //If you want to directly give boosts to the companion, use this. It updates every time the companion status updates, but that doesn't happens every mod frame.
         {
             g.MeleeCriticalRate += 10;
@@ -148,10 +151,19 @@ namespace gaomonfollowermod
         public void AddRewards()
         {
             //To setup the unique rewards the companion can give you for doing It's requests.
+            //Those rewards will be given by the companion when you complete requests, or by other methods, If something else makes use of 
+            //the companion rewards.
             AddReward(Terraria.ID.ItemID.Salmon, 2, 200, 0.75f, 1); //Adds chance of getting 2 Salmons, with 75% chance, if the spare reward score is 200 or above. For each extra stack (the 1 value), the reward score is depleted again to try giving another of the item.
             AddReward(Terraria.ID.ItemID.KOCannon, 1, 1000, 0.01f); //KO Cannon, 1% chance of appearing, 1000 reward score necessary.
             AddReward(Terraria.ID.ItemID.IronskinPotion, 3, 250, 0.4f, 2);
         }
+
+        /// From here on is optional, the companion will use default messages when necessary, 
+        /// but to make your companion richer in dialogue, It's recommended that you add dialogues 
+        /// to It.
+        /// 
+        /// Due to being methods, you have more freedom and options to use when making the companion 
+        /// dialogue.
 
         public override string LeavingWorldMessage //Message shown when the companion moves out of the world.
         {
