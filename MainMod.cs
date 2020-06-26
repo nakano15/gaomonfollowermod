@@ -17,6 +17,11 @@ namespace gaomonfollowermod
             }
         }
 
+        public override void Unload()
+        {
+            giantsummon.MainMod.UnloadModGuardians(this);
+        }
+
         /*public override void ModifyInterfaceLayers(System.Collections.Generic.List<Terraria.UI.GameInterfaceLayer> layers)
         {
             Terraria.UI.LegacyGameInterfaceLayer debuglayer = new Terraria.UI.LegacyGameInterfaceLayer("Gaomon Mod: Debug Layer", DrawDebugLayer, Terraria.UI.InterfaceScaleType.UI);
