@@ -5,16 +5,24 @@ namespace gaomonfollowermod
 {
 	public class MainMod : Mod
 	{
-        public static giantsummon.MainMod tgmod;
+        public const string DigimonGroupID = "digimon"; //I set It as const, so I can just get the ID for all the companions in the mod with ease.
 
         public override void Load()
         {
-            tgmod = (giantsummon.MainMod)ModLoader.GetMod("giantsummon");
-            if (tgmod != null)
+            giantsummon.MainMod.AddInitialGuardian(ModContent.NPCType<CompanionNPCs.GaomonNPC>()); //Adds a companion npc as possible starter companion when creating a new world.
+        }
+
+        public override object Call(params object[] args)
+        {
+            foreach (object arg in args)
             {
-                giantsummon.MainMod.AddGuardianList(this, CompanionDB);
-                giantsummon.MainMod.AddInitialGuardian(ModContent.NPCType<CompanionNPCs.GaomonNPC>());
+                if (arg is string && arg == giantsummon.MainMod.CustomCompanionCallString) //
+                {
+                    giantsummon.MainMod.AddNewGroup(DigimonGroupID, "Digimon", true, true); //Add custom groups BEFORE adding custom companions.
+                    giantsummon.MainMod.AddGuardianList(this, CompanionDB); //Linking the mod companion db to the TerraGuardians mod.
+                }
             }
+            return base.Call(args);
         }
 
         public override void Unload()
@@ -54,15 +62,15 @@ namespace gaomonfollowermod
             return true;
         }*/
 
-        public static void CompanionDB(int ID, out GuardianBase gb)
+        public static void CompanionDB(int ID, out GuardianBase gb) //Your very own companion DB.
         {
             switch (ID)
             {
                 case 0:
-                    gb = new GaomonBase();
+                    gb = new GaomonBase(); //Make a class for your companion, extending GuardianBase to create a companion, then set a new instance of it as the GuardianBase value returned.
                     break;
                 default:
-                    gb = new GuardianBase();
+                    gb = new GuardianBase(); //Always set the value to a new GuardianBase when the ID doesn't leads to a companion, this will recognize the companion as a non existing companion.
                     break;
             }
         }

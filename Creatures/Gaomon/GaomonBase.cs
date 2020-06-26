@@ -21,19 +21,25 @@ namespace gaomonfollowermod
             //DuckingHeight = 32; //Height when companion is crouching.
             FramesInRows = 20; //Set here the maximum number of frames a row will have, until skip the animation to the next row.
             SetTerraGuardian();
-            Size = GuardianSize.Small;
-            Age = 0;
-            CanChangeGender = true;
+            GroupID = MainMod.DigimonGroupID; //Set group ids AFTER you use SetTerraGuardian() or SetTerrarian(). Those methods overrides GroupID by default.
+            Size = GuardianSize.Medium; //Things like the wind push from the sandstorm affecting the companion are related ot this.
+            Age = 0; //Lorewise, give them some average age, for immersion. Due to this companion just appearing after you use the Digivice, literally It's age is 0 (beside I wont try explaining why he spawns on child stage).
+            CanChangeGender = true; //May be male or female.
+            //Male = true; //Tells the companion gender. King and Queen Statue makes use of this. Some future dialogues may make use of It too.
             InitialMHP = 60; //480 - Initial Health the companion starts with. The 480 I placed on comment is the total health when all life crystals and life fruits the companion will have. It's good if you log It too.
             LifeCrystalHPBonus = 20; //How much max health bonus each life crystal will give. Remember that a maximum of 15 life crystals can be used by the companion.
             LifeFruitHPBonus = 6; //How much max health bonus each Life Fruit will give. Remember that a maximum of 20 life fruits can be used by the companion.
             //CalculateHealthToGive(480, 0.5f,0.5f); //If you are lazy to calculate the max health given by each life increasing item, you can use this method instead.
+            //InitialMP = 20; //Initial MP the companion has.
+            //ManaCrystalMPBonus = 20; //Extra MP the companion will get for using Mana Crystal. Remember that they can use up to 9.
             DodgeRate = 5; //Default dodge rate of the companion. Default is 0.
             BlockRate = 0; //Default block rate of the companion. Default is 0.
             DrinksBeverage = false; //Drinks alcoholic stuffs?
             CanDuck = false; //Tells if companion can crouch or not.
             ReverseMount = true; //Tells the game that the follower will mount on your character back, instead of the inverse.
             DontUseHeavyWeapons = true; //The companion will not use heavy weapons, like the heavy swords the mod adds.
+            //There are other settings you can make use of, just check out GuardianBase class on TerraGuardians mod.
+
             CallUnlockLevel = 0; //Level necessary to be able to call your companion for help. 0 = always possible. 255 = most likelly never possible.
             //LootingUnlockLevel = 3; //Companion loot unlock level.
             //MaySellYourLoot = 4; //Loot selling unlock level.
@@ -129,6 +135,7 @@ namespace gaomonfollowermod
             ///Request basics.
             ///Requests added to the companion are special requests. They only trigger after 5 requests are completed.
             ///Request Score affects the rewards you can receive, from type to count. There is a score bonus based on the objectives.
+            ///Every time you use AddNewRequest, It creates a new request. The other options adds the new info to the latest request added to your companion request list.
             AddNewRequest("The Best Food?", 380, "I want to experiement a tasty food your world has to offer. I heard a lot of people saying that they like Soup, so what about giving me one?",
                 "You will make a Soup for me? Amazing! I will be waiting.", "Is It too hard to make? Sad...", 
                 "T-That's soup? Give It to me. *Gulps the soup in* Yay! Amazing! I really love It! This is my favorite food ever now!",
