@@ -33,7 +33,8 @@ namespace gaomonfollowermod
         {
             if (npc.type == Terraria.ID.NPCID.BlueSlime && npc.ai[1] == 0)
             {
-                if (!giantsummon.NpcMod.HasMetGuardian(0, mod) && !giantsummon.NpcMod.HasGuardianNPC(0, mod) && Main.rand.Next(10) == 0) //Adds a chance of adding a Blue Digivice to a Slime body, so the player can loot It and use to get Gaomon. 
+                int NearestPlayer = npc.FindClosestPlayer();
+                if (NearestPlayer > -1 && !giantsummon.NpcMod.HasMetGuardian(0, mod) && !giantsummon.NpcMod.HasGuardianNPC(0, mod) && !PlayerMod.HasGuardianSummoned(Main.player[NearestPlayer], 0, mod.Name) && Main.rand.Next(10) == 0) //Adds a chance of adding a Blue Digivice to a Slime body, so the player can loot It and use to get Gaomon. 
                 {
                     npc.ai[1] = ModContent.ItemType<Item.BlueDigivice>();
                     npc.netUpdate = true;

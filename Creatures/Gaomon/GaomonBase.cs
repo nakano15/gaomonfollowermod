@@ -301,7 +301,7 @@ namespace gaomonfollowermod
             }
             if (NPC.AnyNPCs(Terraria.ID.NPCID.Merchant))
             {
-                Mes.Add("Absurd that [nn:" + Terraria.ID.NPCID.Merchant + "] doesn't have any cards to sell. But for some reason, I can get benefits from potions.");
+                Mes.Add("Absurd that [nn:" + Terraria.ID.NPCID.Merchant + "] doesn't have any disks to sell. But It seems like potions works too.");
             }
             if (NPC.AnyNPCs(Terraria.ID.NPCID.Nurse))
             {

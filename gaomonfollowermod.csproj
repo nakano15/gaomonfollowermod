@@ -60,6 +60,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Changelog.txt" />
     <Content Include="CompanionNPCs\Gaomon_Head.png" />
     <Content Include="Creatures\Gaomon\body.png" />
     <Content Include="Creatures\Gaomon\body_front.png" />
