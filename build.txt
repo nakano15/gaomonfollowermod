@@ -1,6 +1,6 @@
 displayName = Gaomon Companion
 author = Nakano15
-version = 0.1.1
+version = 0.1.2.1
 modReferences = giantsummon
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, SpriteModels\
 homepage = https://forums.terraria.org/index.php?threads/terraguardians-gaomon-companion.95367/
