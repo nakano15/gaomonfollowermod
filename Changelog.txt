@@ -1,1 +1,1 @@
-﻿Changed the way the starter guardian list is checked, to adapt to the new TerraGuardians system of It.
+﻿Blue Digivice will no longer come from slimes when you've already met Gaomon.

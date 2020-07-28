@@ -9,23 +9,17 @@ namespace gaomonfollowermod
 
         public override void Load()
         {
+            giantsummon.MainMod.AddInitialGuardian(ModContent.NPCType<CompanionNPCs.GaomonNPC>()); //Adds a companion npc as possible starter companion when creating a new world.
         }
 
         public override object Call(params object[] args)
         {
             foreach (object arg in args)
             {
-                if (arg is string) //
+                if (arg is string && arg == giantsummon.MainMod.CustomCompanionCallString) //
                 {
-                    if (arg == giantsummon.MainMod.CustomCompanionCallString)
-                    {
-                        giantsummon.MainMod.AddNewGroup(DigimonGroupID, "Digimon", true, true); //Add custom groups BEFORE adding custom companions.
-                        giantsummon.MainMod.AddGuardianList(this, CompanionDB); //Linking the mod companion db to the TerraGuardians mod.
-                    }
-                    if (arg == giantsummon.MainMod.CustomStarterCallString)
-                    {
-                        giantsummon.MainMod.AddInitialGuardian(ModContent.NPCType<CompanionNPCs.GaomonNPC>()); //Adds a companion npc as possible starter companion when creating a new world.
-                    }
+                    giantsummon.MainMod.AddNewGroup(DigimonGroupID, "Digimon", true, true); //Add custom groups BEFORE adding custom companions.
+                    giantsummon.MainMod.AddGuardianList(this, CompanionDB); //Linking the mod companion db to the TerraGuardians mod.
                 }
             }
             return base.Call(args);
