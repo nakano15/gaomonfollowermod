@@ -6,6 +6,7 @@ namespace gaomonfollowermod
 	public class MainMod : Mod
 	{
         public const string DigimonGroupID = "digimon"; //I set It as const, so I can just get the ID for all the companions in the mod with ease.
+        public const int GaomonID = 0;
 
         public override void Load()
         {
@@ -24,7 +25,7 @@ namespace gaomonfollowermod
                     }
                     if (arg == giantsummon.MainMod.CustomStarterCallString)
                     {
-                        giantsummon.MainMod.AddInitialGuardian(ModContent.NPCType<CompanionNPCs.GaomonNPC>()); //Adds a companion npc as possible starter companion when creating a new world.
+                        giantsummon.MainMod.AddInitialGuardian(new GuardianID(GaomonID, this.Name)); //Adds a companion npc as possible starter companion when creating a new world.
                     }
                 }
             }

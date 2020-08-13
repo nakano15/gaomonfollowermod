@@ -1,1 +1,7 @@
-﻿Changed the way the starter guardian list is checked, to adapt to the new TerraGuardians system of It.
+﻿Did changes to the codes, to fit the new guardian system.
+	One of the changes is the way the guardian spawn with the world.
+	The other, is the way their npc appear.
+Changed It's max life values:
+	Instead of initial 60 MHP, It now has 140 MHP.
+	Instead of 20 MHP per Life Crystal, It now gains 16 MHP.
+	Anyway, the result Max Life continues 480.

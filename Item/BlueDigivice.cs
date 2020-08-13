@@ -25,14 +25,11 @@ namespace gaomonfollowermod.Item
             if (UseItem(player))
             {
                 //This script makes so the item spawns Gaomon on the player position.
-                int npcPos = NPC.NewNPC((int)player.Center.X, (int)player.position.Y, ModContent.NPCType<CompanionNPCs.GaomonNPC>());
-                if (npcPos < 200)
+                TerraGuardian tg = giantsummon.NpcMod.SpawnGuardianNPC((int)player.Center.X, (int)player.position.Y, MainMod.GaomonID, mod.Name, true);
+                // int npcPos = NPC.NewNPC((int)player.Center.X, (int)player.position.Y, ModContent.NPCType<CompanionNPCs.GaomonNPC>());
+                for (int d = 0; d < 20; d++)
                 {
-                    NPC npc = Main.npc[npcPos];
-                    for (int d = 0; d < 20; d++)
-                    {
-                        Dust.NewDust(npc.position, npc.width, npc.height, Terraria.ID.DustID.Electric);
-                    }
+                    Dust.NewDust(tg.TopLeftPosition, tg.Width, tg.Height, Terraria.ID.DustID.Electric);
                 }
                 Main.NewText("After using It, the Digivice broke, and a creature came out.");
                 item.SetDefaults(0);

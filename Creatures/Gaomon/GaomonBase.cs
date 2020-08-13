@@ -26,8 +26,8 @@ namespace gaomonfollowermod
             Age = 0; //Lorewise, give them some average age, for immersion. Due to this companion just appearing after you use the Digivice, literally It's age is 0 (beside I wont try explaining why he spawns on child stage).
             CanChangeGender = true; //May be male or female.
             //Male = true; //Tells the companion gender. King and Queen Statue makes use of this. Some future dialogues may make use of It too.
-            InitialMHP = 60; //480 - Initial Health the companion starts with. The 480 I placed on comment is the total health when all life crystals and life fruits the companion will have. It's good if you log It too.
-            LifeCrystalHPBonus = 20; //How much max health bonus each life crystal will give. Remember that a maximum of 15 life crystals can be used by the companion.
+            InitialMHP = 140; //480 - Initial Health the companion starts with. The 480 I placed on comment is the total health when all life crystals and life fruits the companion will have. It's good if you log It too.
+            LifeCrystalHPBonus = 16; //How much max health bonus each life crystal will give. Remember that a maximum of 15 life crystals can be used by the companion.
             LifeFruitHPBonus = 6; //How much max health bonus each Life Fruit will give. Remember that a maximum of 20 life fruits can be used by the companion.
             //CalculateHealthToGive(480, 0.5f,0.5f); //If you are lazy to calculate the max health given by each life increasing item, you can use this method instead.
             //InitialMP = 20; //Initial MP the companion has.
