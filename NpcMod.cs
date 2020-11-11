@@ -12,7 +12,7 @@ namespace gaomonfollowermod
     {
         public override void GetChat(NPC npc, ref string chat)
         {
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.Next(2) == 0 && giantsummon.NpcMod.HasGuardianNPC(0, mod.Name))
             {
                 switch (npc.type) //A number of examples on how to refference custom companion on npcs dialogues.
                 {

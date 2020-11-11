@@ -130,6 +130,13 @@ namespace gaomonfollowermod
             g.HealthRegenPower++;
         }
 
+
+        //A few notes.
+        //[name] = Speaking companion name.
+        //[nickname] = The nickname given to your character. (By default is Terrarian, you can change It in-game.)
+        //[gn:id:modid] = Gets a companion name.
+        //[nn:type] = Gets a npc name.
+        //Place those on the companion dialogue as you see fitting.
         public void AddRequests()
         {
             ///Request basics.
@@ -185,38 +192,6 @@ namespace gaomonfollowermod
             get
             {
                 return "had It's things packed to the Digital World.";
-            }
-        }
-
-        public override string FriendLevelMessage //Message when reaches Friend level.
-        {
-            get
-            {
-                return "You're the best!";
-            }
-        }
-
-        public override string BestFriendLevelMessage //Message when reaches Best Friend level.
-        {
-            get
-            {
-                return "We are doing great in our adventure.";
-            }
-        }
-
-        public override string BFFLevelMessage //Message when reaches Best Friends Forever level.
-        {
-            get
-            {
-                return "Come on, let's go punch some more things!";
-            }
-        }
-
-        public override string BuddyForLifeLevelMessage //Message when reaches Buddy For Life level.
-        {
-            get
-            {
-                return "I will gladly follow you on your adventure, master.";
             }
         }
 
@@ -439,6 +414,49 @@ namespace gaomonfollowermod
             Mes.Add("You guys prepared a birthday party for me? Wow! I liked!");
             Mes.Add("This is my birthday party, so this mean let the fun start!");
             return Mes[Terraria.Main.rand.Next(Mes.Count)];
+        }
+
+        /// <summary>
+        /// For some extra dialogue lines the companion can say.
+        /// Check out on the mod source, at GuardianBase.cs, on the class "MessageIDs", the constants you can use to call a dialogue.
+        /// </summary>
+        /// <param name="MessageID"></param>
+        /// <returns></returns>
+        public override string GetSpecialMessage(string MessageID)
+        {
+            switch (MessageID)
+            {
+                    //For Leopold's recruitment messages, I recommend you to check out his recruitment messages scripts, at Npcs/LeopoldNPCs.cs. There is a moment where he speaks to the companion leader of your party.
+                case MessageIDs.LeopoldMessage1: //This dialogue is attached to Leopold's recruitment. He monologues by himself, and even thinks the player enslaved the TerraGuardians following him. This dialogue appears after he says to himself how he'll rescue them.
+                    return "That guy seems a bit glitched out.";
+                case MessageIDs.LeopoldMessage2: //Leopold's answer to above. TerraGuardians dialogues are between * because they speak through bond, so whoever has a bond with them, can hear what they say from within.
+                    return "*What are you talking about? What is even a glitch?*";
+                case MessageIDs.LeopoldMessage3: //Your companion answers Leopold, and finally makes him get It that your character could hear him monologuing all the time.
+                    return "You must not really be normal, to think that the Terrarian didn't heard your monologuing.";
+                    //End of leopold's recruitment message.
+                case MessageIDs.BuddySelected: //This dialogue appears when you pick this companion on Buddy Mode.
+                    return "Master! You really picked me! I... I don't even know what to say. You're the best!";
+                case MessageIDs.GuardianWokeUpByPlayerMessage: //Appears when you wakes up the companion.
+                    return "[nickname], It's too early... Let me sleep some more.";
+                case MessageIDs.GuardianWokeUpByPlayerRequestActiveMessage: //The same as above, but only if you have a request active for that companion.
+                    return "[nickname], you woke up. Did you do my request?";
+                case MessageIDs.AfterAskingCompanionToJoinYourGroupSuccess: //When the companion agrees to join the team, and has a slot for him to join.
+                    return "Yes, [nickname]!";
+                case MessageIDs.AfterAskingCompanionToJoinYourGroupFullParty: //When the companion agrees to join the team, but has no slot for him on the party.
+                    return "But [nickname], there's too many people with you.";
+                case MessageIDs.AfterAskingCompanionToJoinYourGroupFail: //When companion doesn't want to follow you on an adventure. Related to friendship level, but Gaomon will never trigger this message.
+                    return "Sorry [nickname], but not right now.";
+                case MessageIDs.AfterAskingCompanionToLeaveYourGroupAskIfYoureSure: //When you ask the companion to leave the party while away from safe place.
+                    return "But [nickname], I want to explore the world with you some more.";
+                case MessageIDs.AfterAskingCompanionToLeaveYourGroupYesAnswerDangerousPlace: //When you ask the companion to leave the party while away from safe place.
+                    return "[nickname]! Are you sure you want to leave me here? I will have to fight my way back home.";
+                case MessageIDs.AfterAskingCompanionToLeaveYourGroupYesAnswer: //When you answer yes after the companion asks if you really will let him leave the party.
+                    return "Okay [nickname], If you need me, just call me.";
+                case MessageIDs.AfterAskingCompanionToLeaveYourGroupNoAnswer: //When you answer no to the above question.
+                    return "Thanks [nickname], I wasn't really wanting to leave the group.";
+
+            }
+            return "";
         }
     }
 }
