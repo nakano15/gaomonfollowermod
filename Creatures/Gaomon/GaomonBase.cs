@@ -450,10 +450,20 @@ namespace gaomonfollowermod
                     return "But [nickname], I want to explore the world with you some more.";
                 case MessageIDs.AfterAskingCompanionToLeaveYourGroupYesAnswerDangerousPlace: //When you ask the companion to leave the party while away from safe place.
                     return "[nickname]! Are you sure you want to leave me here? I will have to fight my way back home.";
-                case MessageIDs.AfterAskingCompanionToLeaveYourGroupYesAnswer: //When you answer yes after the companion asks if you really will let him leave the party.
+                case MessageIDs.AfterAskingCompanionToLeaveYourGroupSuccessAnswer: //When you answer yes after the companion asks if you really will let him leave the party.
                     return "Okay [nickname], If you need me, just call me.";
                 case MessageIDs.AfterAskingCompanionToLeaveYourGroupNoAnswer: //When you answer no to the above question.
                     return "Thanks [nickname], I wasn't really wanting to leave the group.";
+                case MessageIDs.RequestAccepted: //Is shown after you accept any request from the companion.
+                    return "You'll do? Thanks! Come tell me when you finish my request.";
+                case MessageIDs.RequestCantAcceptTooManyRequests: //Whenever you have too many requests active, this shows.
+                    return "You look way too overloaded right now. Try doing your other requests, first.";
+                case MessageIDs.RequestRejected: //Whenever you reject a request a companion is going to give you.
+                    return "Aww...";
+                case MessageIDs.RequestPostpone: //When you click "Maybe Later" option, when the companion shows you what is It's request about. That message is shown above their head.
+                    return "Oh, later then?";
+                case MessageIDs.RequestFailed: //Whenever you fail a request. It will not be shown if you do a special request for that companion, and It has a fail text.
+                    return "Well, at least you gave It a try.";
 
             }
             return "";
