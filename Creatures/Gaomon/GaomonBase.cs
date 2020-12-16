@@ -121,6 +121,8 @@ namespace gaomonfollowermod
             AddRequests();
             //Links to companion specific rewards method.
             AddRewards();
+            //Links to a method containing the topics you can have with this companion.
+            GetTopics();
         }
         
         public override void Attributes(TerraGuardian g) //If you want to directly give boosts to the companion, use this. It updates every time the companion status updates, but that doesn't happens every mod frame.
@@ -130,6 +132,25 @@ namespace gaomonfollowermod
             g.HealthRegenPower++;
         }
 
+        public void GetTopics()
+        {
+            AddTopic("How are you feeling today?", PersonalChat); //The first attribute is the option that will appear on the dialogue. The second attribute, is a reference to the method with the dialogue, which in this case, is bellow this method.
+        }
+
+        private void PersonalChat()
+        {
+            Dialogue.ShowDialogue("Me? I'm feeling fine."); //At least in this case, you don't need to specify the speaker, because the dialogue knows who's the speaker.
+            switch(Dialogue.ShowDialogueWithOptions("What about you, [nickname]?", new string[] { "I'm feeling fine", "I'm not feeling really well" })) //Returns a number, based on the position the option is at. The number is from 0 to infinite. 0 is the first option.
+            {
+                case 0: //When you say "I'm feeling fine"
+                    Dialogue.ShowDialogue("I'm glad that you're feeling fine, [nickname].");
+                    break;
+                case 1:
+                    Dialogue.ShowDialogue("Don't worry [nickname], I'm here, hoping you'll feel fine soon.");
+                    break;
+            }
+            Dialogue.ShowEndDialogueMessage("Let's chat again some time soon.", false); //If you want to end the dialogue with a close button. Set the flag to true, if you want the dialogue to close there.
+        }
 
         //A few notes.
         //[name] = Speaking companion name.
@@ -464,7 +485,26 @@ namespace gaomonfollowermod
                     return "Oh, later then?";
                 case MessageIDs.RequestFailed: //Whenever you fail a request. It will not be shown if you do a special request for that companion, and It has a fail text.
                     return "Well, at least you gave It a try.";
-
+                case MessageIDs.RestAskForHowLong: //Shows up when you pick "Rest" option on the companion dialogue.
+                    return "I'm feeling a little tired too. How long will we rest?";
+                case MessageIDs.RestNotPossible: //When resting is not possible, due to current world state.
+                    return "Just... Not now.";
+                case MessageIDs.RestWhenGoingSleep: //Shows up when going to get a rest. Think of It as a "Good night".
+                    return "I'll make sure no evil Digimons attack you meanwhile.";
+                case MessageIDs.AskPlayerToGetCloserToShopNpc: //When the player is mounted on the companion, or the inverse, the companion will say this when It sees something It wants from a shop.
+                    return "Hey [nickname], let's check [shop] shop."; //[shop] tag shows the name of the town npc selling what the companion wants.
+                case MessageIDs.AskPlayerToWaitAMomentWhileCompanionIsShopping: //Shows up when the above happens, and the companion is near enough to the npc. GenericThankYou is used when the companion finally buys from the shop.
+                    return "Just a moment, I'll check this out...";
+                case MessageIDs.GenericYes: //Generic accept dialogue. For multiple purposes, as they surge.
+                    return "Yes.";
+                case MessageIDs.GenericNo: //Generic reject dialogue. For multiple purposes, as they surge.
+                    return "No.";
+                case MessageIDs.GenericThankYou: //Generic thank you dialogue. For multiple purposes, as they surge.
+                    return "Thanks!";
+                case MessageIDs.ChatAboutSomething: //Shows up when you tell the companion that you want to chat.
+                    return "Yes [nickname], what do you want to know?";
+                case MessageIDs.NevermindTheChatting: //Shows up when you press "Nevermind", when checking the things you can talk about with the companion. Related to the above case.
+                    return "Enough chatting? It's fine by me, I'm more about action.";
             }
             return "";
         }
