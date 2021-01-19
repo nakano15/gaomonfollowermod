@@ -1,3 +1,4 @@
 ﻿Removed friendship level related dialogues.
 Town npcs will no longer mention Gaomon without having their companion npc in the world.
 Added some more special dialogue options to him.
+Updated stuffs to the latest version of the mod.

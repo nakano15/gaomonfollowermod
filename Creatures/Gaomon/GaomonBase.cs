@@ -505,6 +505,12 @@ namespace gaomonfollowermod
                     return "Yes [nickname], what do you want to know?";
                 case MessageIDs.NevermindTheChatting: //Shows up when you press "Nevermind", when checking the things you can talk about with the companion. Related to the above case.
                     return "Enough chatting? It's fine by me, I'm more about action.";
+                case MessageIDs.CancelRequestAskIfSure: //When the player clicks "Cancel Request" button, the companion says this.
+                    return "[nickname], you're really planning on dropping my request?";
+                case MessageIDs.CancelRequestYesAnswered: //When saying "Yes" after the companion asks if you are sure you want to cancel request.
+                    return "Okay... Maybe I went too far on what I asked.";
+                case MessageIDs.CancelRequestNoAnswered: //Same as above, but for the "No" option.
+                    return "Oh... Okay.";
             }
             return "";
         }
