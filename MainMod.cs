@@ -18,12 +18,13 @@ namespace gaomonfollowermod
             {
                 if (arg is string) //
                 {
-                    if (arg == giantsummon.MainMod.CustomCompanionCallString)
+                    if ((string)arg == giantsummon.MainMod.CustomCompanionCallString)
                     {
-                        giantsummon.MainMod.AddNewGroup(DigimonGroupID, "Digimon", true, true); //Add custom groups BEFORE adding custom companions.
+                        giantsummon.Group group = giantsummon.MainMod.AddNewGroup(DigimonGroupID, "Digimon",true, true); //Add custom groups BEFORE adding custom companions.
+                        group.AgeAffectsScale = false; //To disable the scaling based on age.
                         giantsummon.MainMod.AddGuardianList(this, CompanionDB); //Linking the mod companion db to the TerraGuardians mod.
                     }
-                    if (arg == giantsummon.MainMod.CustomStarterCallString)
+                    if ((string)arg == giantsummon.MainMod.CustomStarterCallString)
                     {
                         giantsummon.MainMod.AddInitialGuardian(new GuardianID(GaomonID, this.Name)); //Adds a companion npc as possible starter companion when creating a new world.
                     }
