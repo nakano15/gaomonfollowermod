@@ -1,1 +1,1 @@
-﻿
+﻿Removed unused guardian town npc of this companion.

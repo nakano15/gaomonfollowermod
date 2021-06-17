@@ -139,14 +139,14 @@ namespace gaomonfollowermod
 
         private void PersonalChat()
         {
-            Dialogue.ShowDialogue("Me? I'm feeling fine."); //At least in this case, you don't need to specify the speaker, because the dialogue knows who's the speaker.
+            Dialogue.ShowDialogueWithContinue("Me? I'm feeling fine."); //At least in this case, you don't need to specify the speaker, because the dialogue knows who's the speaker.
             switch(Dialogue.ShowDialogueWithOptions("What about you, [nickname]?", new string[] { "I'm feeling fine", "I'm not feeling really well" })) //Returns a number, based on the position the option is at. The number is from 0 to infinite. 0 is the first option.
             {
                 case 0: //When you say "I'm feeling fine"
-                    Dialogue.ShowDialogue("I'm glad that you're feeling fine, [nickname].");
+                    Dialogue.ShowDialogueWithContinue("I'm glad that you're feeling fine, [nickname].");
                     break;
                 case 1:
-                    Dialogue.ShowDialogue("Don't worry [nickname], I'm here, hoping you'll feel fine soon.");
+                    Dialogue.ShowDialogueWithContinue("Don't worry [nickname], I'm here, hoping you'll feel fine soon.");
                     break;
             }
             Dialogue.ShowEndDialogueMessage("Let's chat again some time soon.", false); //If you want to end the dialogue with a close button. Set the flag to true, if you want the dialogue to close there.

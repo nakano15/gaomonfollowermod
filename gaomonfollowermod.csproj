@@ -46,7 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompanionNPCs\GaomonNPC.cs" />
     <Compile Include="Creatures\Gaomon\GaomonBase.cs" />
     <Compile Include="Item\BlueDigivice.cs" />
     <Compile Include="MainMod.cs" />
@@ -61,7 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Changelog.txt" />
-    <Content Include="CompanionNPCs\Gaomon_Head.png" />
     <Content Include="Creatures\Gaomon\body.png" />
     <Content Include="Creatures\Gaomon\body_front.png" />
     <Content Include="Creatures\Gaomon\head.png" />
