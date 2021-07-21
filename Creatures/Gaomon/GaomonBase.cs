@@ -440,6 +440,9 @@ namespace gaomonfollowermod
         /// <summary>
         /// For some extra dialogue lines the companion can say.
         /// Check out on the mod source, at GuardianBase.cs, on the class "MessageIDs", the constants you can use to call a dialogue.
+        /// 
+        /// They're optional, though.
+        /// Filling them will enhance the interaction to companions.
         /// </summary>
         /// <param name="MessageID"></param>
         /// <returns></returns>
@@ -455,6 +458,7 @@ namespace gaomonfollowermod
                 case MessageIDs.LeopoldMessage3: //Your companion answers Leopold, and finally makes him get It that your character could hear him monologuing all the time.
                     return "You must not really be normal, to think that the Terrarian didn't heard your monologuing.";
                     //End of leopold's recruitment message.
+
                 case MessageIDs.BuddySelected: //This dialogue appears when you pick this companion on Buddy Mode.
                     return "Master! You really picked me! I... I don't even know what to say. You're the best!";
                 case MessageIDs.GuardianWokeUpByPlayerMessage: //Appears when you wakes up the companion.
@@ -511,6 +515,56 @@ namespace gaomonfollowermod
                     return "Okay... Maybe I went too far on what I asked.";
                 case MessageIDs.CancelRequestNoAnswered: //Same as above, but for the "No" option.
                     return "Oh... Okay.";
+                // Messages for when the companion is revived by occasion. Only useful if you're using knock out system.
+                case MessageIDs.ReviveByOthersHelp: //When revived with help of others.
+                    return "Thanks! But I need to practice more...";
+                case MessageIDs.RevivedByRecovery: //When revived without help.
+                    return "I can stand again. But I shouldn't have fall...";
+
+                //Message for when acquiring a debuff.
+                case MessageIDs.AcquiredPoisonedDebuff:
+                    return "Ugh... Poison...";
+                case MessageIDs.AcquiredBurningDebuff:
+                    return "It buuurns!!!";
+                case MessageIDs.AcquiredDarknessDebuff:
+                    return "I can still smell you!";
+                case MessageIDs.AcquiredConfusedDebuff:
+                    return "What?";
+                case MessageIDs.AcquiredCursedDebuff:
+                    return "I can't attack!";
+                case MessageIDs.AcquiredSlowDebuff:
+                    return "I'm hindered!";
+                case MessageIDs.AcquiredWeakDebuff:
+                    return "I can still pull a punch or two...";
+                case MessageIDs.AcquiredBrokenArmorDebuff:
+                    return "Argh! It wont end like this.";
+                case MessageIDs.AcquiredHorrifiedDebuff:
+                    return "I've never seen something so horrible even on the digital world!";
+                case MessageIDs.AcquiredIchorDebuff:
+                    return "Eww! Gotta take It off.";
+                case MessageIDs.AcquiredChilledDebuff:
+                    return "I c-could use a c-coat now.";
+                case MessageIDs.AcquiredWebbedDebuff:
+                    return "Let me off!";
+                case MessageIDs.AcquiredFeralBiteDebuff:
+                    return "I'll take you down!";
+                // Message for when acquiring a buff.
+                case MessageIDs.AcquiredDefenseBuff:
+                    return "Endurance!";
+                case MessageIDs.AcquiredWellFedBuff:
+                    return "Delicious!";
+                case MessageIDs.AcquiredDamageBuff:
+                    return "Hitting Harder!";
+                case MessageIDs.AcquiredSpeedBuff:
+                    return "Vrooom!";
+                case MessageIDs.AcquiredHealthIncreaseBuff:
+                    return "Way healthier!";
+                case MessageIDs.AcquiredCriticalBuff:
+                    return "Time to cause some KO's.";
+                case MessageIDs.AcquiredMeleeWeaponBuff:
+                    return "I wont use those on my gloves.";
+                case MessageIDs.AcquiredTipsyDebuff: //This message is for when the companion gets a buff from alcoholic drink.
+                    return ""; //He doesn't drinks alcoholic stuff.
             }
             return "";
         }

@@ -1,1 +1,2 @@
-﻿Removed unused guardian town npc of this companion.
+﻿Fixed dated dialogue script issue.
+Added dialogues for when acquiring buffs.
