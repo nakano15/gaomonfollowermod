@@ -564,7 +564,89 @@ namespace gaomonfollowermod
                 case MessageIDs.AcquiredMeleeWeaponBuff:
                     return "I wont use those on my gloves.";
                 case MessageIDs.AcquiredTipsyDebuff: //This message is for when the companion gets a buff from alcoholic drink.
-                    return ""; //He doesn't drinks alcoholic stuff.
+                    return ""; //He doesn't drinks alcoholic stuff, so this never triggers.
+                // Companion reactions to a number of things.
+                case MessageIDs.FoundLifeCrystalTile:
+                    return "[nickname]! A life crystal!";
+                case MessageIDs.FoundPressurePlateTile:
+                    return "Watch your step! Pressure plate!";
+                case MessageIDs.FoundMineTile: //Yes, those minds that makes you go boom when you step.
+                    return "Watch out! A mine on the floor.";
+                case MessageIDs.FoundDetonatorTile:
+                    return "[nickname], better not push that detonator lever.";
+                case MessageIDs.FoundPlanteraTile: //When finds a Plantera Bulb
+                    return "I don't think that's a good omen..";
+                case MessageIDs.WhenOldOneArmyStarts:
+                    return "Time for distributing punch sandwich!";
+                case MessageIDs.FoundTreasureTile: //When finds a chest with good loot
+                    return "Hurry up and open it!";
+                case MessageIDs.FoundGemTile: //Found some gems around (Amethyst, Topaz, etc.)
+                    return "Shiny gems on sight!";
+                case MessageIDs.FoundRareOreTile: //Rare ore spotted (Mythril and Orichalcum ores, for example)
+                    return "I found some ores here.";
+                case MessageIDs.FoundVeryRareOreTile: //Very rare ores spotted (Adamantite and Titanium ores, for example)
+                    return "[nickname], look at this.";
+                case MessageIDs.FoundMinecartRailTile: //If finds minecart tracks
+                    return "Rollercoaster! Let's ride it?";
+                // More reactions
+                case MessageIDs.TeleportHomeMessage: //When you use a Magic Mirror
+                    return "I think I've punched enough, too.";
+                case MessageIDs.SomeoneJoinsTeamMessage: //When you successfully ask someone to join your group.
+                    return "Hi!";
+                case MessageIDs.PlayerMeetsSomeoneNewMessage: //When you just recruited a new companion.
+                    return "It's always good to meet new people.";
+                case MessageIDs.CompanionInvokesAMinion: //When this companion invokes a summon
+                    return "I wont stop punching due to this.";
+                case MessageIDs.VladimirRecruitPlayerGetsHugged: //There is a moment during Vladimir's recruitment, where he asks if could hug the player. This reaction happens when he hugs the player.
+                    return "Uh... [nickname]?";
+                // More reactions too
+                case MessageIDs.LeaderFallsMessage: //When the player enters Knocked Out state.
+                    return "[nickname]! Hang on!";
+                case MessageIDs.LeaderDiesMessage: //When player dies.
+                    return "[nickname]? [nickname]! [nickname]!!!"; //You can already wonder what happens if you change the nickname of your character to "Snake".
+                case MessageIDs.AllyFallsMessage: //An ally nearby entered Knocked Out state
+                    return "[nickname]! Someone has fell in combat!";
+                case MessageIDs.SpotsRareTreasure: //When the companion sees a good loot on the ground
+                    return "That looks valuable.";
+                case MessageIDs.LeavingToSellLoot: //When the companion leaves the exploration temporarily to sell loot.
+                    return "I'll unload some items to a shop and return with the coins.";
+                case MessageIDs.PlayerAtDangerousHealthLevel: //Your health is low (< 30% Health)
+                    return "[nickname]! Watch your health!";
+                case MessageIDs.CompanionHealthAtDangerousLevel: //This companion health is low (< 30% Health)
+                    return "Ugh... It's nothing...";
+                case MessageIDs.RunningOutOfPotions: //Has less than 5 potions left.
+                    return "I'm running out of potions.";
+                case MessageIDs.UsesLastPotion: //Just used last potion
+                    return "I'm out of potions!";
+                case MessageIDs.SpottedABoss: // When companion spots a boss.
+                    return "Watch out, [nickname]!";
+                case MessageIDs.DefeatedABoss: // Boss just died
+                    return "It was no match to me!";
+                case MessageIDs.InvasionBegins: // An invasion event begins.
+                    return "I'm ready!";
+                case MessageIDs.RepelledInvasion: // Invasion was just defeated
+                    return "Is there more? No? Alright!";
+                case MessageIDs.EventBegins: //A moon event begins.
+                    return "Odd... Very odd...";
+                case MessageIDs.EventEnds: //A moon event just ended
+                    return "Whew, everyone is alright?";
+                //Feat Mentioning, [player] replaced by mentioned player. [subject] for feat subject
+                case MessageIDs.FeatMentionPlayer: //Mentions the players that helped them recently.
+                    return "Have you been hearing of [player]? I were.";
+                case MessageIDs.FeatMentionBossDefeat: //Mentions a boss that died recently. [subject] is the boss name.
+                    return "Have you heard of the beating [player] did to [subject]? It was awesome!";
+                case MessageIDs.FeatFoundSomethingGood: //Mentions player who found something rare. [subject] is the item name.
+                    return "[player] found something that seems rare. It was a [subject].";
+                case MessageIDs.FeatEventFinished: //Mentions player who survive a event. [subject] is event name.
+                    return "The [subject] was no match to [player], at all!";
+                case MessageIDs.FeatMetSomeoneNew: //Mentions when the player meets a new companion. [subject] is the new companion name.
+                    return "[player] met [subject] recently.";
+                case MessageIDs.FeatPlayerDied: //Mentions that a hardcore mode player has recently died.
+                    return "Another tamer I met has died recently... Their name was [player]...";
+                case MessageIDs.FeatOpenTemple: //Mentions that a player opened a jungle temple door.
+                    return "[player] opened the door of some kind of temple.";
+                case MessageIDs.FeatCoinPortal: //Mentions that a player found a coin portal.
+                    return "[player] was really lucky for finding a coin portal!";
             }
             return "";
         }
