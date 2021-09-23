@@ -647,6 +647,14 @@ namespace gaomonfollowermod
                     return "[player] opened the door of some kind of temple.";
                 case MessageIDs.FeatCoinPortal: //Mentions that a player found a coin portal.
                     return "[player] was really lucky for finding a coin portal!";
+                case MessageIDs.FeatPlayerMetMe: //Mentions that a player has met this companion. Only spoken by the companion who were met.
+                    return "I've met a new tamer. [player] was how they were called.";
+                case MessageIDs.FeatCompletedAnglerQuests: //Mentions when the player completes a number of requests from the angler. [subject] is the number of times.
+                    return "I heard that [player] helped the Angler Kid [subject] times.";
+                case MessageIDs.FeatKilledMoonLord: //Mentions when the player killed Moon Lord for the first time in a world. [subject] is the name of the world It was killed on.
+                    return "I heard that [player] saved [subject] from a kind of monster.";
+                case MessageIDs.FeatStartedHardMode: //Mentions when Hardmode begins in a world. [subject] is the world name.
+                    return "There are creepy monsters roaming [subject], after [player] killed some creature.";
             }
             return "";
         }
