@@ -1,2 +1,3 @@
 ﻿Added new dialogues to Gaomon.
 Rebuilt some mod systems, due to changing the base Health and Mana setup variable type.
+Updated the custom companion list addition to new system.

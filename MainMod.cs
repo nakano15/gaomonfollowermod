@@ -8,29 +8,13 @@ namespace gaomonfollowermod
         public const string DigimonGroupID = "digimon"; //I set It as const, so I can just get the ID for all the companions in the mod with ease.
         public const int GaomonID = 0; //This is a constant. I use this to tell that 0 is basically Gaomon's ID. I just need to call that constant to tell that I want his Id.
 
-        public override void Load()
+        public override void PostSetupContent() //This part must be done here. It runs right after the modloader loaded all mods.
         {
-        }
+            Group group = giantsummon.MainMod.AddNewGroup(DigimonGroupID, "Digimon", true, true); //Add custom groups BEFORE adding custom companions.
+            group.AgeAffectsScale = false; //To disable the scaling based on age.
+            giantsummon.MainMod.AddGuardianList(this, CompanionDB); //Linking the mod companion db to the TerraGuardians mod.
 
-        public override object Call(params object[] args)
-        {
-            foreach (object arg in args)
-            {
-                if (arg is string) //To check if the message is the kind we want to get.
-                {
-                    if ((string)arg == giantsummon.MainMod.CustomCompanionCallString)
-                    {
-                        giantsummon.Group group = giantsummon.MainMod.AddNewGroup(DigimonGroupID, "Digimon",true, true); //Add custom groups BEFORE adding custom companions.
-                        group.AgeAffectsScale = false; //To disable the scaling based on age.
-                        giantsummon.MainMod.AddGuardianList(this, CompanionDB); //Linking the mod companion db to the TerraGuardians mod.
-                    }
-                    if ((string)arg == giantsummon.MainMod.CustomStarterCallString)
-                    {
-                        giantsummon.MainMod.AddInitialGuardian(new GuardianID(GaomonID, this.Name)); //Adds a companion npc as possible starter companion when creating a new world.
-                    }
-                }
-            }
-            return base.Call(args);
+            giantsummon.MainMod.AddInitialGuardian(new GuardianID(GaomonID, this.Name)); //Adds a companion npc as possible starter companion when creating a new world.
         }
 
         public override void Unload()
