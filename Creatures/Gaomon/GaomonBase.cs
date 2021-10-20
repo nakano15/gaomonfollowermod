@@ -655,6 +655,10 @@ namespace gaomonfollowermod
                     return "I heard that [player] saved [subject] from a kind of monster.";
                 case MessageIDs.FeatStartedHardMode: //Mentions when Hardmode begins in a world. [subject] is the world name.
                     return "There are creepy monsters roaming [subject], after [player] killed some creature.";
+                case MessageIDs.FeatMentionSomeonePickedAsBuddy:
+                    return "I heard that [player] picked [subject] as their buddy. I wonder if I'm your buddy, now.";
+                case MessageIDs.FeatSpeakerPlayerPickedMeAsBuddy:
+                    return "I'm so happy that you picked me as your buddy. Don't worry, if something threatens us, I'm going to black it out of punching!";
             }
             return "";
         }
