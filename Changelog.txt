@@ -1,3 +1,2 @@
-﻿Added new dialogues to Gaomon.
-Rebuilt some mod systems, due to changing the base Health and Mana setup variable type.
-Updated the custom companion list addition to new system.
+﻿No longer will crash because will not try to unload textures anymore.
+Added a description, and its information.

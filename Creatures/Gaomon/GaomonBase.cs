@@ -13,18 +13,18 @@ namespace gaomonfollowermod
         //Do mind that I'm not really a digifan, so take It easy if something is incorrect based on the anime/games.
         public GaomonBase()
         {
-            //TODO - There is a confusion happening here, some datas and overriden methods are working correctly, others are still using the GuardianBase default value.
             Name = "Gaomon";
+            Description = "Came from another world by unknown ways."; //Set the description of the companion, that is shown when selecting this companion from your list.
             SpriteWidth = SpriteHeight = 64; //When creating a companion sprite sheet, never let It's total width or height exceed 2000, for some reason that causes bugs to XNA.
+            FramesInRows = 20; //Set here the maximum number of frames a row will have, until skip the animation to the next row.
             Width = 18; //Hitbox Width based on the sprite center.
             Height = 32; //Hitbox Height based on sprite bottom.
             //DuckingHeight = 32; //Height when companion is crouching.
-            FramesInRows = 20; //Set here the maximum number of frames a row will have, until skip the animation to the next row.
             SetTerraGuardian();
             GroupID = MainMod.DigimonGroupID; //Set group ids AFTER you use SetTerraGuardian() or SetTerrarian(). Those methods overrides GroupID by default.
             Size = GuardianSize.Medium; //Things like the wind push from the sandstorm affecting the companion are related ot this.
             Age = 0; //Lorewise, give them some average age, for immersion. Due to this companion just appearing after you use the Digivice, literally It's age is 0 (beside I wont try explaining why he spawns on child stage).
-            CanChangeGender = true; //May be male or female.
+            CanChangeGender = true; //Tells that the companion may be male or female.
             //Male = true; //Tells the companion gender. King and Queen Statue makes use of this. Some future dialogues may make use of It too.
             InitialMHP = 140; //480 - Initial Health the companion starts with. The 480 I placed on comment is the total health when all life crystals and life fruits the companion will have. It's good if you log It too.
             LifeCrystalHPBonus = 16; //How much max health bonus each life crystal will give. Remember that a maximum of 15 life crystals can be used by the companion.

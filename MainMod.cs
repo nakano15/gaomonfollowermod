@@ -17,11 +17,6 @@ namespace gaomonfollowermod
             giantsummon.MainMod.AddInitialGuardian(new GuardianID(GaomonID, this.Name)); //Adds a companion npc as possible starter companion when creating a new world.
         }
 
-        public override void Unload()
-        {
-            giantsummon.MainMod.UnloadModGuardians(this);
-        }
-
         public static void CompanionDB(int ID, out GuardianBase gb) //Your very own companion DB.
         {
             switch (ID)
