@@ -1,2 +1,2 @@
-﻿No longer will crash because will not try to unload textures anymore.
-Added a description, and its information.
+﻿Changed location to fit the mod source changes.
+Added dialogues for when companion will catch a fallen ally.

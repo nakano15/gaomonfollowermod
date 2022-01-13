@@ -46,7 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Creatures\Gaomon\GaomonBase.cs" />
+    <Compile Include="Companions\Creatures\Gaomon\GaomonBase.cs" />
     <Compile Include="Item\BlueDigivice.cs" />
     <Compile Include="MainMod.cs" />
     <Compile Include="NpcMod.cs" />
@@ -60,11 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Changelog.txt" />
-    <Content Include="Creatures\Gaomon\body.png" />
-    <Content Include="Creatures\Gaomon\body_front.png" />
-    <Content Include="Creatures\Gaomon\head.png" />
-    <Content Include="Creatures\Gaomon\left_arm.png" />
-    <Content Include="Creatures\Gaomon\right_arm.png" />
+    <Content Include="Companions\Creatures\Gaomon\body.png" />
+    <Content Include="Companions\Creatures\Gaomon\body_front.png" />
+    <Content Include="Companions\Creatures\Gaomon\head.png" />
+    <Content Include="Companions\Creatures\Gaomon\left_arm.png" />
+    <Content Include="Companions\Creatures\Gaomon\right_arm.png" />
     <Content Include="Item\BlueDigivice.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
