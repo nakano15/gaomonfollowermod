@@ -121,8 +121,6 @@ namespace gaomonfollowermod
             //WingPosition.DefaultCoordinate2x = new Microsoft.Xna.Framework.Point();
             WingPosition.AddFramePoint2x(15, 15, 25);
 
-            //Links to a method I made in this script to handle the companion specific requests.
-            AddRequests();
             //Links to companion specific rewards method.
             AddRewards();
             //Links to a method containing the topics you can have with this companion.
@@ -154,37 +152,6 @@ namespace gaomonfollowermod
                     break;
             }
             Dialogue.ShowEndDialogueMessage("Let's chat again some time soon.", false); //If you want to end the dialogue with a close button. Set the flag to true, if you want the dialogue to close there.
-        }
-
-        //A few notes.
-        //[name] = Speaking companion name.
-        //[nickname] = The nickname given to your character. (By default is Terrarian, you can change It in-game.)
-        //[gn:id:modid] = Gets a companion name.
-        //[nn:type] = Gets a npc name.
-        //Place those on the companion dialogue as you see fitting.
-        public void AddRequests()
-        {
-            ///Request basics.
-            ///Requests added to the companion are special requests. They only trigger after 5 requests are completed.
-            ///Request Score affects the rewards you can receive, from type to count. There is a score bonus based on the objectives.
-            ///Every time you use AddNewRequest, It creates a new request. The other options adds the new info to the latest request added to your companion request list.
-            AddNewRequest("The Best Food?", 380, "I want to experiement a tasty food your world has to offer. I heard a lot of people saying that they like Soup, so what about giving me one?",
-                "You will make a Soup for me? Amazing! I will be waiting.", "Is It too hard to make? Sad...", 
-                "T-That's soup? Give It to me. *Gulps the soup in* Yay! Amazing! I really love It! This is my favorite food ever now!",
-                "I don't know how to make a soup, but everything starts from a bowl, right?");
-            AddItemCollectionObjective(Terraria.ID.ItemID.BowlofSoup, 1, 0);
-            //Another Request
-            AddNewRequest("No Peeking", 420, 
-                "Remember the Eye of Cthulhu? I kind of have nightmares of It. Maybe If we defeat It again, the nightmares will go away?",
-                "Let's do It tonight. I hope this works.",
-                "Are you terrified by It too?",
-                "We did a great job! But I'll only find out If It worked once I get some sleep.",
-                "The Eye of Cthulhu appears during the night. We should try facing It some place that gives us advantage, though.");
-            AddRequestRequirement(delegate(Player player)
-            {
-                return NPC.downedBoss1; //This request requires Eye of Cthulhu defeated to appear.
-            });
-            AddKillBossRequest(Terraria.ID.NPCID.EyeofCthulhu, 1); //Boss is 1 gem level tougher.
         }
 
         public void AddRewards()
@@ -396,9 +363,11 @@ namespace gaomonfollowermod
         public override string HasRequestMessage(Player player, TerraGuardian guardian) //When companion has request disponible.
         {
             List<string> Mes = new List<string>();
-            Mes.Add("It is really weird for me to ask, but I need your help for something.");
-            Mes.Add("Hey boss! Can you help me with something?");
-            return Mes[Terraria.Main.rand.Next(Mes.Count)];
+            ///[objective] lists a short description of the objective. The reason why 'to' comes before it, is to try making the dialogues make sense with the description of the request.
+            ///For making the dialogue cohesive, try analyzing if the phrase works by replacing [objective] with those messages: "slay x monsters", "get x items" and "travel with x".
+            Mes.Add("It is really weird for me to ask, but I need your help for something. I need you to [objective], can you do it?");
+            Mes.Add("Hey boss! Can you help me with something? I need you to [objective]. I'm not really used to ask for help but.. Can you help me with this?");
+            return Mes[Main.rand.Next(Mes.Count)];
         }
 
         public override string CompletedRequestMessage(Player player, TerraGuardian guardian) //Message the companion says when you complete It's request.
@@ -493,6 +462,10 @@ namespace gaomonfollowermod
                     return "Oh, later then?";
                 case MessageIDs.RequestFailed: //Whenever you fail a request. It will not be shown if you do a special request for that companion, and It has a fail text.
                     return "Well, at least you gave It a try.";
+                case MessageIDs.RequestAsksIfCompleted: //The companion will say this when it asks you to pick a reward, before completting the request.
+                    return "You have completed my request?";
+                case MessageIDs.RequestRemindObjective: //In case you speak with the companion when the request is active, but you didn't completed yet. You can remind the player of the objective with [objective]. Check HasRequestMessages for cohesive uses of [objective].
+                    return "You forgot what I asked for? I need you to [objective].";
                 case MessageIDs.RestAskForHowLong: //Shows up when you pick "Rest" option on the companion dialogue.
                     return "I'm feeling a little tired too. How long will we rest?";
                 case MessageIDs.RestNotPossible: //When resting is not possible, due to current world state.
