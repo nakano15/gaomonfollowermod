@@ -18,10 +18,10 @@ In case you want the player only to get the companion, use giantsummon.PlayerMod
 Please don't make sloppy companions, give them lore and dialogues, to make them more interesting to have around. Remember that they can also end up being town npcs.
 
 Mod Guide:
-Creatures/Gaomon - Contains the sprites and scripts of the custom companion.<br>
-CompanionNPCs/ - Contains the companion npc script and It's head. If you want to have that companion <br>
+Companions/Creatures/Gaomon - Contains the sprites and scripts of the custom companion.<br>
 MainMod.cs - Contains the script that adds Gaomon as a possible initial guardian, aswell as the script adding the custom Digimon group, and the custom GuardianDB to TerraGuardians mod. Also contains the GuardianDB of the mod.<br>
 NpcMod.cs - Contains a few chat scripts for npcs to make refferences about Gaomon, and adds the chance of adding the Blue Digivice to the body of a spawning Slime.<br>
 Item/ - Contains the item and sprite of the Blue Digivice. The item itself checks if Gaomon haven't been met, acquired by the player, or has the npc in the world before using It. When used, will spawn Gaomon NPC on the player position.<br>
 SpriteModels/ - Contains furniture sprites you may find useful, for when creating a custom companion. <br>
 build.txt - Mod definitions. modReference is necessary to make this mod work.
+Gaomon.aseprite - The file containing the sprites of Gaomon. You need Aseprite to be able to open it.
