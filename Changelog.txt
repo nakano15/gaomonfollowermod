@@ -1,2 +1,2 @@
-﻿Changed location to fit the mod source changes.
-Added dialogues for when companion will catch a fallen ally.
+﻿Updated the mod source to fit the new changes to the mod systems.
+Updated how the request rewards are input on to the companion.

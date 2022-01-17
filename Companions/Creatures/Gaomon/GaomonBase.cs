@@ -159,9 +159,10 @@ namespace gaomonfollowermod
             //To setup the unique rewards the companion can give you for doing It's requests.
             //Those rewards will be given by the companion when you complete requests, or by other methods, If something else makes use of 
             //the companion rewards.
-            AddReward(Terraria.ID.ItemID.Salmon, 2, 200, 0.75f, 1); //Adds chance of getting 2 Salmons, with 75% chance, if the spare reward score is 200 or above. For each extra stack (the 1 value), the reward score is depleted again to try giving another of the item.
-            AddReward(Terraria.ID.ItemID.KOCannon, 1, 1000, 0.01f); //KO Cannon, 1% chance of appearing, 1000 reward score necessary.
-            AddReward(Terraria.ID.ItemID.IronskinPotion, 3, 250, 0.4f, 2);
+            //The loot will compete against other possible loots for being the possible reward for doing something, like a request.
+            AddReward(Terraria.ID.ItemID.Salmon, 2, 0.75f); //Adds chance of getting 2 Salmons, with a chance of 0.75 on the array of being the possible loot to get.
+            AddReward(Terraria.ID.ItemID.KOCannon, 1, 0.01f); //KO Cannon
+            AddReward(Terraria.ID.ItemID.IronskinPotion, 3, 0.4f);
         }
 
         /// From here on is optional, the companion will use default messages when necessary, 
