@@ -1,2 +1,1 @@
-﻿Updated the mod source to fit the new changes to the mod systems.
-Updated how the request rewards are input on to the companion.
+﻿
