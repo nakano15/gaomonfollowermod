@@ -220,7 +220,7 @@ namespace gaomonfollowermod
         public override string NormalMessage(Terraria.Player player, TerraGuardian guardian) //Normal message displayed when you talk to the companion.
         {
             List<string> Mes = new List<string>();
-            Mes.Add("Why I have to use weapons? I can use my first!");
+            Mes.Add("Why I have to use weapons? I can use my fists!");
             Mes.Add("It kind of feels like I'm in a completelly different universe.");
             Mes.Add("I don't think I'm ready for digivolution, but I will keep doing my best either way.");
             Mes.Add("So, you will fight too? Good, I would love fighting alongside you.");
